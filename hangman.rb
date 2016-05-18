@@ -2,13 +2,13 @@ dict_words = File.read("/usr/share/dict/words").downcase.split("\n")
 word = dict_words.sample
 word_array = word.downcase.split("")
 blank_array = Array.new(word.length, "_")
-gameover = 0
+gameover = false
 guesses = 6
 input = ""
 guessed = []
 letter_check = 0
 letter_pos = nil
-until gameover == 1
+until gameover do
   puts
   print "Hangman: ", blank_array.join(" ")
   puts
@@ -19,9 +19,6 @@ until gameover == 1
   puts
   puts "Guess a letter: "
   input = gets.chomp.downcase
-
-
-
   if guessed.include?(input) || input.length > 1
     puts "Please type a new letter"
     guesses += 1
@@ -40,7 +37,7 @@ until gameover == 1
   end
   #victory condition
   if word_array == blank_array
-    gameover = 1
+    gameover = true
     puts
     print "You won! The word was: #{word}"
     puts
@@ -48,7 +45,7 @@ until gameover == 1
   end
   #losing condition
   if guesses == 0
-    gameover = 1
+    gameover = true
     puts
     print "You lost! The word was: #{word}"
     puts
