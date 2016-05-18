@@ -15,10 +15,10 @@ until gameover do
   print "Guessed letters: ", guessed.join(" ")
   puts
   print "Guesses left: #{guesses}"
-  guesses -= 1
   puts
   puts "Guess a letter: "
   input = gets.chomp.downcase
+  guesses -= 1
   if guessed.include?(input) || input.length > 1
     puts "Please type a new letter"
     guesses += 1
