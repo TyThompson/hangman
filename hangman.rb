@@ -1,4 +1,5 @@
-dict_words = File.read("/usr/share/dict/words").downcase.split("\n")
+# dict_words = File.read("words.txt").downcase.split("\n") #compatibility with Windows and Mac
+dict_words = ["test"]
 word = dict_words.sample
 word_array = word.downcase.split("")
 blank_array = Array.new(word.length, "_")
@@ -19,7 +20,7 @@ until gameover do
   puts
   puts "Guess a letter: "
   input = gets.chomp.downcase
-  if guessed.include?(input) || input.length > 1
+  if guessed.include?(input)
     puts "Please type a new letter"
     guesses += 1
   elsif word_array.include?(input)
@@ -36,7 +37,7 @@ until gameover do
     end
   end
   #victory condition
-  if word_array == blank_array
+  if word_array == blank_array  || input == word
     gameover = true
     puts
     print "You won! The word was: #{word}"

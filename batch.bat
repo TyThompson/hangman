@@ -1,0 +1,2 @@
+ruby hangman.rb
+@pause
