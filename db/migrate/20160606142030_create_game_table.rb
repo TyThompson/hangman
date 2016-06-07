@@ -4,7 +4,7 @@ class CreateGameTable < ActiveRecord::Migration
       t.string :name
       t.integer :games_won
       t.integer :games_played
-      t.string :guessed_letters
+      t.array :guessed_letters
       t.string :word
       end
     end
