@@ -1,3 +1,7 @@
+#Adding DB to hangman
+Adding a DB to hangman for homework.
+
+
 This folder structure should be suitable for starting a project that uses a database:
 
 * Clone the repo
