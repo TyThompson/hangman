@@ -1,14 +1,14 @@
-Class Hangman
+class Hangman
 	def initialize
-	Game.new
+	# Game.new
 	play(File.read("words.txt").downcase.split("\n").sample, 6)
 	end
 
 	def get_name
 		name = gets.chomp.downcase
-		Game.name = name
-		Game.save
-	 	return name	
+		# Game.name = name
+		# Game.save
+	 	return name
 	end
 
 	def questions(blank_array, guessed, guesses)
@@ -37,19 +37,19 @@ Class Hangman
 	    count = 0
 	    word_array.each do |letter|
 	      if input == letter
-	      	game.guessed_letters << input
-	      	Game.save
-			blank_array[count] = input
+	      	# Game.guessed_letters << input
+	      	# Game.save
+			    blank_array[count] = input
 	      end
-	      count += 1
+	    count += 1
 	    end
 	    return false
 	  else
-	     puts "That letter is not in the hidden word!"
-		 guessed << input
-		 game.guessed_letters << input
-		 Game.save
-		 return true
+	    puts "That letter is not in the hidden word!"
+		  guessed << input
+		  # Game.guessed_letters << input
+		  # Game.save
+		  return true
 	  end
 	end
 
@@ -59,8 +59,8 @@ Class Hangman
 		print "You won! The word was: #{word}"
 		puts
 		gameover = true
-		Game.games_won += 1
-		Game.save
+		# Game.games_won += 1
+		# Game.save
 		return gameover
 	end
 
@@ -75,8 +75,8 @@ Class Hangman
 
 	def play(w, number_of_guesses)
 		word = w
-		Game.word = w
-		Game.save
+		# Game.word = w
+		# Game.save
 		blank_array = Array.new(word.length, "_")
 		guessed = []
 		guesses = number_of_guesses
@@ -84,7 +84,7 @@ Class Hangman
 		gameover = false
 
 
-	get_name
+	  get_name
 		until gameover == true
 			questions(blank_array, guessed, guesses)
 
@@ -96,7 +96,6 @@ Class Hangman
 
 			if word_array == blank_array  || input == word
 				gameover = win(word)
-
 			end
 
 			if guesses == 0
@@ -104,9 +103,11 @@ Class Hangman
 			end
 		end
 		puts "End of game"
-		Game.games_played += 1
-		Game.save
-		puts "Games Won:", Game.games_won
-		puts "Games Played:", Game.games_played
-	end
-end
+		# Game.games_played += 1
+		# Game.save
+		# puts "Games Won:", Game.games_won
+		# puts "Games Played:", Game.games_played
+  end
+end #ends Hangman class
+
+hang = Hangman.new
